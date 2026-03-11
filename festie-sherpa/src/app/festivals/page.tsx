@@ -35,8 +35,7 @@ export default async function FestivalsPage({
   const { data: festivals, error } = await query
 
   const allGenres = festivals
-    ? [...new Set(festivals.flatMap(f => f.genres || []))].sort()
-    : []
+  ? Array.from(new Set(festivals.flatMap(f => f.genres || []))).sort()
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
