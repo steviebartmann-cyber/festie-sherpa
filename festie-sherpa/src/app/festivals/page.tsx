@@ -22,7 +22,7 @@ export default async function FestivalsPage({
   let query = supabase
     .from('festivals')
     .select('*')
-    .order('sherpa_score', { ascending: false, nullsLast: true })
+    .order('sherpa_score', { ascending: false, nullsFirst: false })
 
   if (searchParams.search) {
     query = query.ilike('name', `%${searchParams.search}%`)
